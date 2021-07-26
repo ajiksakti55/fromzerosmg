@@ -211,26 +211,26 @@
 
 
                 <div class="col m7 s12">
-                    <form>
+                    <form name="fromzero-form">
                         <div class="card-panel">
                             <h5>We will contact you</h5>
                             <div class="input-field">
-                                <input type="text" name="name" id="name" required class="validate">
+                                <input type="text" name="nama" id="name" required class="validate">
                                 <label for="name">Nama</label>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="phone" id="phone" required class="validate">
+                                <input type="text" name="wa/telephone" id="phone" required class="validate">
                                 <label for="phone">Wa/telephone</label>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="name" id="name">
+                                <input type="text" name="alamat" id="name">
                                 <label for="name">Alamat</label>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="name" id="name">
+                                <input type="text" name="paket" id="name">
                                 <label for="name">Paket</label>
                             <div class="input-field">
-                                <textarea name="message" id="message" class="materialize-textarea"></textarea>
+                                <textarea name="pesan" id="message" class="materialize-textarea"></textarea>
                                 <label for="message">Pesan</label>
                             </div>
                             <button type="submit" class="btn blue darken-2">ORDER</button>
@@ -272,10 +272,19 @@
         const scroll = document.querySelectorAll('.scrollspy');
         M.ScrollSpy.init(scroll, {
             scrollOffset: 64
-        });
+        });    
+    </script>
 
-            
-        
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbweejXB0Ntwg6KVKDZQbbTBE96_Rk7czGmP8QiQL4g3NeCK19RT2KpD4HJ7JuQrfYHu1g/exec'
+    const form = document.forms['fromzero-form']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
     </script>
   </body>
 </html>
