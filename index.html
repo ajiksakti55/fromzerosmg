@@ -211,6 +211,10 @@
 
 
                 <div class="col m7 s12">
+                    <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                        <strong>Terimakasih!</strong> Yusup kintil akan menghubungi anda.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
                     <form name="fromzero-form">
                         <div class="card-panel">
                             <h5>We will contact you</h5>
@@ -233,7 +237,11 @@
                                 <textarea name="pesan" id="message" class="materialize-textarea"></textarea>
                                 <label for="message">Pesan</label>
                             </div>
-                            <button type="submit" class="btn blue darken-2">ORDER</button>
+                            <button type="submit" class="btn blue darken-2 btn-kirim">ORDER</button>
+                            <button class="btn-sa btn-sa1 btn-loading d-none" type="button">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                              </button>
                         </div>
                     </form>
                 </div>
@@ -278,11 +286,22 @@
     <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbweejXB0Ntwg6KVKDZQbbTBE96_Rk7czGmP8QiQL4g3NeCK19RT2KpD4HJ7JuQrfYHu1g/exec'
     const form = document.forms['fromzero-form']
-  
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
     form.addEventListener('submit', e => {
-      e.preventDefault()
+      e.preventDefault();
+    //   di klik
+    // loading,kirim
+    btnLoading.classList.toggle('d-none');
+    btnKirim.classList.toggle('d-none');
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
+        .then(response => {
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            myAlert.classList.toggle('d-none');
+            form.reset();
+            console.log('Success!', response)})
         .catch(error => console.error('Error!', error.message))
     })
     </script>
