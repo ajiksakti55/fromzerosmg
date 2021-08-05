@@ -21,7 +21,6 @@ html{
 .navbar.sticky{
     padding: 15px 0;
     background: crimson;
-    opacity: 0.8;
 }
 
 .navbar .max-width{
@@ -202,9 +201,9 @@ section .title::after{
 /* about */
 
 
-.about .title::after{
-    content: "Pancamuda Amerta";
-}
+/* .about .title::after{ */
+    /* content: "Pancamuda Amerta"; */
+/* } */
 
 .about .about-content .left{
     width: 45%;
@@ -237,10 +236,10 @@ section .title::after{
 .contact .title::before{
     background: #fff;
 }
-.services .title::after{
-    background: rgb(63, 63, 63);
-    content: "Professional";
-}
+/* .services .title::after{ */
+    /* background: rgb(63, 63, 63); */
+    /* content: "Professional"; */
+/* } */
 .services .serv-content .card{
     width: calc(33% - 20px);
     background: #222;
@@ -279,9 +278,9 @@ section .title::after{
 .package{
     color: rgb(63, 62, 62);
 }
-.package .title::after{
-    content: "Brand Kepercayaan kami";
-}
+/* .package .title::after{ */
+    /* content: "Brand Kepercayaan kami"; */
+/* } */
 .package .carousel .card{
     background: rgb(224, 222, 222);
     border-radius: 6px;
@@ -582,6 +581,9 @@ footer span a:hover{
     
     .home .home-content .text-3{
         font-size: 27px;
+    }
+    .services .serv-content .card{
+        width: 100%;
     }
 
 }
