@@ -226,25 +226,33 @@
                     </div>
                 </div>
                 <div class="column right">
-                    <div class="text">Message me</div>
-                    <form action="#">
+                    <div class="text">Hubungi Saya Segera</div>
+                    <div class="alert d-none">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <strong>Terimakasih!</strong> anda akan segera kami hubungi.
+                    </div>
+                    <form name="from-contact">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" placeholder="Name" name="Nama" required>
                             </div>
-                            <div class="field email">
-                                <input type="text" placeholder="WA/Telpn" required>
+                            <div class="field Telpn">
+                                <input type="text" placeholder="WA/Telpn" name="WA/Telpn" required>
                             </div>
                         </div>
-                        <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                        <div class="field email">
+                            <input type="email" placeholder="Email" name="Email" required>
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea cols="30" rows="10" placeholder="Pesan" name="Pesan" required></textarea>
                         </div>
-                        <div class="button-area">
-                            <button type="submit">Send message</button>
+                        <div class="button-area  btn-kirim">
+                            <button type="submit">Hubungi saya</button>
                         </div>
+                            <button class="btn btn-primary btn-loading d-none">
+                                <span class="spinner-border spinner-border-sm"></span>
+                                Loading..
+                            </button>
                     </form>
                 </div>
             </div>
@@ -257,5 +265,26 @@
     </footer>
 
     <script src="script/script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzeip_yMWi0DDDBZS9hXLgTnh4spP_rTJnSdH_deG3RASGHUB2PDnTqOodnxyliGYJa/exec'
+        const form = document.forms['from-contact']
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const alert = document.querySelector('.alert');
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                btnLoading.classList.toggle('d-none');
+                btnKirim.classList.toggle('d-none');
+                alert.classList.toggle('d-none');
+                form.reset();
+                console.log('Success!', response)
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 </html>
