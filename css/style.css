@@ -929,3 +929,10 @@ footer span a:hover{
         padding: 8px;
     }
 }
+
+@media (max-width: 362px) {
+    .navbar .logo a{
+        font-size: 16px;
+        margin-left: -5px !important;
+    }
+}
