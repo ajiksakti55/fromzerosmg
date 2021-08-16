@@ -53,7 +53,7 @@ section .title{
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-family: 'Ubuntu', sans-serif;
 }
 section .title::before{
@@ -87,7 +87,7 @@ section .title::after{
     transition: all 0.3s ease;
 }
 .navbar.sticky{
-    padding: 15px 0;
+    padding: 8px 0;
     background: crimson;
 }
 .navbar .max-width{
@@ -96,12 +96,13 @@ section .title::after{
     justify-content: space-between;
 }
 .navbar .logo a{
+    font-size: 20px;
     color: #fff;
     margin-left: -250px !important;
 }
 .navbar .logo a span{
     font-family: 'Ubuntu', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     color: rgb(255, 255, 255);  
 }
 .navbar.sticky .logo a span{
@@ -119,10 +120,12 @@ section .title::after{
     margin-left: 25px;
     transition: color 0.3s ease;
 }
-.navbar .menu li a:hover{
+.navbar .menu li a:hover,
+.navbar .logo a:hover{
     color: crimson;
 }
-.navbar.sticky .menu li a:hover{
+.navbar.sticky .menu li a:hover,
+.navbar.sticky .logo a:hover{
     color: #fff;
 }
 
@@ -337,7 +340,7 @@ section .title::after{
   margin-top: -22px;
   padding: 16px;
   color: rgb(255, 255, 255);
-  background-color: crimson;
+  background-color: rgba(73, 73, 73, 0.233);
   font-weight: bold;
   font-size: 40px;
   transition: 0.6s ease;
@@ -398,9 +401,9 @@ section .title::after{
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 2s;
   animation-name: fade;
-  animation-duration: 3s;
+  animation-duration: 2s;
 }
 
 @-webkit-keyframes fade {
@@ -412,6 +415,16 @@ section .title::after{
   from {opacity: .2}
   to {opacity: 1}
 }
+
+.judulboy {
+    position: absolute; /* Position the background text */
+    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(255, 193, 193); /* Fallback color */
+    background: rgba(255, 255, 255, 0.568); /* Black background with 0.5 opacity */
+    color: #474747; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 20px; /* Some padding */
+  }
 
 
 /* teams section styling */
@@ -739,7 +752,7 @@ footer span a:hover{
 @media (max-width: 1256px) {
     .navbar .logo a{
         font-size: 20px;
-        margin-left: -150px !important;
+        margin-left: -110px !important;
     }
 }
 @media (max-width: 1104px) {
@@ -759,7 +772,7 @@ footer span a:hover{
     }
     .navbar .logo a{
         font-size: 20px;
-        margin-left: -80px !important;
+        margin-left: -10px !important;
     }
 }
 @media (max-width: 947px){
@@ -865,6 +878,10 @@ footer span a:hover{
         font-size: 20px;
         margin-left: -15px !important;
     }
+    .judulboy{
+        font-size: 12px;
+        padding: 13px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -904,7 +921,11 @@ footer span a:hover{
         padding: 10px;
     }
     .navbar .logo a{
-        font-size: 15px;
+        font-size: 20px;
         margin-left: -5px !important;
+    }
+    .judulboy{
+        font-size: 9px;
+        padding: 8px;
     }
 }
