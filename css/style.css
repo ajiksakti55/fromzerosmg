@@ -128,7 +128,46 @@ section .title::after{
 .navbar.sticky .logo a:hover{
     color: #fff;
 }
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
 
+.dropdown .dropbtn {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* background-color: #f75b5b; */
+    margin-left: 25px;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: rgb(255, 255, 255);
+    font-family: 'Ubuntu', sans-serif;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    color: crimson;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 /* menu btn styling */
 .menu-btn{
     color: #fff;
@@ -344,14 +383,17 @@ section .title::after{
   font-weight: bold;
   font-size: 40px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 100px;
   user-select: none;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 10px;
+  border-radius: 100px;
+}
+.prev{
+    left: 10px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
