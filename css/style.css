@@ -129,7 +129,7 @@ section .title::after{
     color: #fff;
 }
 .dropdown {
-    float: right;
+    /* float: right; */
     overflow: hidden;
 }
 
